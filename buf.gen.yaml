@@ -6,5 +6,10 @@ plugins:
   - name: go # Synonym with: protoc-gen-<name>
     out: gen/go
     opt: paths=source_relative
+  - name: go-grpc
+    out: gen/go
+    opt: 
+      - paths=source_relative
+      - require_unimplemented_servers=false 
   - name: ruby
     out: gen/ruby
