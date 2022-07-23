@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package user.v1;
+
+message User {
+  string uuid = 1;
+  string full_name = 2;
+  int64 birth_year = 3;
+}
