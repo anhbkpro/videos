@@ -15,6 +15,8 @@ module Wearable
     #
     class BeatsPerMinuteRequest < ::Protobuf::Message; end
     class BeatsPerMinuteResponse < ::Protobuf::Message; end
+    class ConsumeBeatsPerMinuteRequest < ::Protobuf::Message; end
+    class ConsumeBeatsPerMinuteResponse < ::Protobuf::Message; end
 
 
     ##
@@ -35,12 +37,23 @@ module Wearable
       optional :uint32, :minute, 2
     end
 
+    class ConsumeBeatsPerMinuteRequest
+      optional :string, :uuid, 1
+      optional :uint32, :value, 2
+      optional :uint32, :minute, 3
+    end
+
+    class ConsumeBeatsPerMinuteResponse
+      optional :uint32, :total, 1
+    end
+
 
     ##
     # Service Classes
     #
     class WearableService < ::Protobuf::Rpc::Service
       rpc :beats_per_minute, ::Wearable::V1::BeatsPerMinuteRequest, ::Wearable::V1::BeatsPerMinuteResponse
+      rpc :consume_beats_per_minute, ::Wearable::V1::ConsumeBeatsPerMinuteRequest, ::Wearable::V1::ConsumeBeatsPerMinuteResponse
     end
 
   end
