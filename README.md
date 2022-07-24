@@ -19,6 +19,8 @@ Install the following tools:
     * `go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27.1`
 * **required** gRPC Plugin for Go:
     * `go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0`
+* **recommended** gRPC Health Check tester using grpc-health-probe:
+*   * `go install github.com/grpc-ecosystem/grpc-health-probe@v0.4.8`
 * **recommended** Code Formatting, `clang-format`, you can use `find . -name '*.proto' | xargs clang-format -i`
     * Homebrew: `brew install clang-format` (to date version `13.0.1`):
     * Alpine 3.15: `apk add clang-extra-tools`
