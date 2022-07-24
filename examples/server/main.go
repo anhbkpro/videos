@@ -6,11 +6,10 @@ import (
 	"net"
 	"time"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/health"
-
 	userpb "github.com/anhbkpro/videos/2022/07/23/gen/go/user/v1"
 	wearablepb "github.com/anhbkpro/videos/2022/07/23/gen/go/wearable/v1"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/health"
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 )
 
@@ -58,6 +57,9 @@ func main() {
 	userpb.RegisterUserServiceServer(grpcServer, userServer)
 	wearablepb.RegisterWearableServiceServer(grpcServer, wearableServer)
 	healthpb.RegisterHealthServer(grpcServer, healthServer)
+
+	// we should not enable this on production
+	// reflection.Register(grpcServer)
 
 	grpcServer.Serve(lis)
 }
