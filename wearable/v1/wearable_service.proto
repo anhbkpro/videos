@@ -1,0 +1,20 @@
+
+syntax = "proto3";
+
+package wearable.v1;
+
+option go_package =
+    "github.com/anhbkpro/videos/2022/07/23/gen/go/wearable/v1;wearablepb";
+
+service WearableService {
+  rpc BeatsPerMinute(BeatsPerMinuteRequest) returns (stream BeatsPerMinuteResponse) {};
+}
+
+message BeatsPerMinuteRequest {
+  string uuid = 1;
+}
+
+message BeatsPerMinuteResponse {
+  uint32 value  = 1;
+  uint32 minute = 2;
+}

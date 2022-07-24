@@ -6,6 +6,7 @@ import (
 	"net"
 
 	userpb "github.com/anhbkpro/videos/2022/07/23/gen/go/user/v1"
+	wearablepb "github.com/anhbkpro/videos/2022/07/23/gen/go/wearable/v1"
 	"google.golang.org/grpc"
 )
 
@@ -28,6 +29,11 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
-	userpb.RegisterUserServiceServer(grpcServer, &userService{})
+	userServer := &userService{}
+	wearableServer := &wearableService{}
+
+	userpb.RegisterUserServiceServer(grpcServer, userServer)
+	wearablepb.RegisterWearableServiceServer(grpcServer, wearableServer)
+
 	grpcServer.Serve(lis)
 }
